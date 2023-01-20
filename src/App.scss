@@ -1,0 +1,30 @@
+@import "../src/common/colors.scss";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  min-height: 100%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  font-size: 1.6rem;
+  background: $primary-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+.root-container {
+  display: flex;
+  justify-content: center;
+}
