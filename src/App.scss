@@ -1,11 +1,10 @@
 @import "../src/common/colors.scss";
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Jost", sans-serif;
+  font-family: "Unbounded", sans-serif;
 }
 
 html,
@@ -22,9 +21,14 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .root-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  // margin: auto;
+  align-self: center;
+  align-items: center;
 }
