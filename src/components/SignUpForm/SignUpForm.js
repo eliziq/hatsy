@@ -1,5 +1,5 @@
 import "./SignUpForm.scss";
-import { useState } from "react";
+import { useState} from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
