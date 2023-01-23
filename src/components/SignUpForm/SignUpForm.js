@@ -53,8 +53,8 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Don't have an account? Sign Up.</h2>
-      <span>Sign Up with your email and password</span>
+      <h2>Don't have an account?</h2>
+      <span>Sign Up with your email and password.</span>
       <form action="" onSubmit={submitUserHandler}>
         <FormInput
           name="displayName"
@@ -91,7 +91,9 @@ const SignUpForm = () => {
         >
           Confirm Password
         </FormInput>
-        <Button btn_type="default">Sign Up</Button>
+        <Button type="submit" btn_type="default">
+          Sign Up
+        </Button>
       </form>
     </div>
   );

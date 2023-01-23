@@ -1,9 +1,5 @@
 import "./Button.scss";
 
-//default
-//inverted
-//special
-
 const BUTTON_TYPE_CLASSES = {
   default: "default",
   inverted: "inverted",
@@ -15,7 +11,7 @@ const Button = ({ children, btn_type, ...otherProps }) => {
     <button
       className={`${BUTTON_TYPE_CLASSES[btn_type]} button-container`}
       {...otherProps}
-    >
+    > 
       {children}
     </button>
   );

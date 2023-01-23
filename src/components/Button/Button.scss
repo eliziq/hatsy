@@ -1,12 +1,13 @@
 @import "../../common/colors.scss";
 
 .button-container {
-  min-width: 165px;
+  min-width: 150px;
   width: auto;
   height: 50px;
   letter-spacing: 1px;
   line-height: 50px;
   padding: 0 35px 0 35px;
+  // margin: 0 15px 0 15px;
   font-size: 16px;
   background-color: $main-color;
   color: white;
@@ -21,7 +22,7 @@
   &:hover {
     background-color: white;
     color: $main-color;
-    border: 2px solid $main-color;
+    border: 1px solid $main-color;
   }
 
   &.special {
@@ -32,7 +33,7 @@
 
     &:hover {
       background-color: $lighter-color;
-      border: 2px solid $main-color;
+      border: 1px solid $main-color;
       font-weight: bold;
     }
   }
