@@ -1,12 +1,13 @@
 import "./SignIn.scss";
-import React from "react";
 import {
   signInWitnGooglePopup,
   createUserDocFromAuth,
 } from "../../util/firebase";
+import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import Button from "../../components/Button/Button";
 
 const SignIn = () => {
-  const logGoogleUer = async () => {
+  const logGoogleUser = async () => {
     const { user } = await signInWitnGooglePopup();
     const userDocRef = await createUserDocFromAuth(user);
   };
@@ -14,7 +15,8 @@ const SignIn = () => {
   return (
     <div>
       <h1>Sign In Page</h1>
-      <button onClick={logGoogleUer}>Sign in with Google Popup</button>
+      <Button btn_type='inverted' onClick={logGoogleUser}>Sign in with Google</Button>
+      <SignUpForm />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import "./CategoryItem.scss";
 
 const CategoryItem = ({ category }) => {
