@@ -17,6 +17,9 @@ body {
   text-rendering: optimizeLegibility;
   font-size: 1.6rem;
   background: $primary-color;
+  padding: 10px 40px;
+  max-width: 1780px;
+  margin: auto;
 }
 
 a {
@@ -28,7 +31,7 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  // margin: auto;
+
   align-self: center;
   align-items: center;
 }
