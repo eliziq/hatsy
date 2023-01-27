@@ -1,7 +1,7 @@
-import "./CategoryItem.scss";
+import "./DirectoryItem.scss";
 import { useNavigate } from "react-router-dom";
 
-const CategoryItem = ({ category }) => {
+const DirectoryItem = ({ category }) => {
   const navigate = useNavigate();
   const goToCategoryHandler = () => {
     navigate(`shop/${category.title.toLowerCase()}`);
@@ -22,4 +22,4 @@ const CategoryItem = ({ category }) => {
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;

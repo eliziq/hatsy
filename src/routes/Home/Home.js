@@ -1,10 +1,10 @@
 import "./Home.scss";
-import CategoriesList from "../../components/CategoriesList/CategoriesList";
+import Directory from "../../components/Directory/Directory";
 
 const Home = () => {
   return (
     <div className="root-container">
-      <CategoriesList />
+      <Directory />
     </div>
   );
 };
