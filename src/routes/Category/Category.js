@@ -5,9 +5,10 @@ import { CategoriesContext } from "../../contexts/CategoriesContext";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 const Category = () => {
+
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
-  const [products, setProducts] = useState([categoriesMap[category]]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
@@ -15,9 +16,10 @@ const Category = () => {
 
   return (
     <div className="category-page-container">
-      { products &&  products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+      {products &&
+        products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
     </div>
   );
 };

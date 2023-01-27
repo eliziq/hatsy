@@ -8,7 +8,7 @@ import CartItem from "../CartItem/CartItem";
 const CartDropdown = () => {
   const { cartItems, totalCost, setIsCartOpen } = useContext(CartContext);
   const navigate = useNavigate();
-  const goToChekoutHandler = () => {
+  const goToCheckoutHandler = () => {
     navigate("/checkout");
     setIsCartOpen(false);
   };
@@ -25,7 +25,7 @@ const CartDropdown = () => {
             <span>Total:</span>
             <span>${totalCost}</span>
           </div>
-          <Button onClick={goToChekoutHandler}>CHECKOUT</Button>
+          <Button onClick={goToCheckoutHandler}>CHECKOUT</Button>
         </>
       ) : (
         <div className="empty-message">You have no items in a cart yet.</div>
