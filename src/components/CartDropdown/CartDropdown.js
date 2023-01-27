@@ -1,5 +1,5 @@
 import "./CartDropdown.scss";
-import { useContext, Fragment } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import Button from "../Button/Button";
@@ -15,7 +15,7 @@ const CartDropdown = () => {
   return (
     <div className="cart-dropdown-container">
       {cartItems.length ? (
-        <Fragment>
+        <>
           <div className="cart-items">
             {cartItems.map((item) => (
               <CartItem key={item.id} product={item} />
@@ -26,7 +26,7 @@ const CartDropdown = () => {
             <span>${totalCost}</span>
           </div>
           <Button onClick={goToChekoutHandler}>CHECKOUT</Button>
-        </Fragment>
+        </>
       ) : (
         <div className="empty-message">You have no items in a cart yet.</div>
       )}
