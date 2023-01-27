@@ -1,9 +1,13 @@
 import "./CategoryItem.scss";
+import { useNavigate } from "react-router-dom";
 
 const CategoryItem = ({ category }) => {
+  const navigate = useNavigate();
+  const goToCategoryHandler = () => {
+    navigate(`shop/${category.title.toLowerCase()}`);
+  };
   return (
-    <div className="category-container">
-      {/* <img src={category.imageUrl} className="background-image" alt="" /> */}
+    <div onClick={goToCategoryHandler} className="category-container">
       <div
         className="background-image"
         style={{

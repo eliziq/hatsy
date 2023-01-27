@@ -7,13 +7,11 @@
   font-size: 18px;
   font-weight: 300;
   align-items: center;
-  // justify-content: space-between;
 
   .image-container {
     height: 180px;
     width: 180px;
     max-width: 23%;
-    // margin-right: 15px;
 
     img {
       width: 100%;
@@ -49,8 +47,6 @@
   .remove-button {
     cursor: pointer;
     display: flex;
-    // width: 60px;
-    // height: 100%;
     align-items: center;
     justify-content: center;
     margin: auto;
