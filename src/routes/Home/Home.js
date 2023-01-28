@@ -1,4 +1,3 @@
-import "./Home.scss";
 import Directory from "../../components/Directory/Directory";
 
 const Home = () => {

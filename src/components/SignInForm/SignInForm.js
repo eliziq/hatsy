@@ -1,12 +1,13 @@
-import "./SignInForm.scss";
+import { SignInContainer, ButtonsContainer } from "./SignInFormStyle";
+
 import { useState } from "react";
 import {
   signInWitnGooglePopup,
-  createUserDocFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../util/firebase";
-import Button from "../Button/Button";
+
 import FormInput from "../FormInput/FormInput";
+import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 
 const SignInForm = () => {
   const defaultFormFields = {
@@ -53,7 +54,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h2>Log into your account.</h2>
       <form action="" onSubmit={signInWithCredentials}>
         <FormInput
@@ -74,16 +75,20 @@ const SignInForm = () => {
           Password
         </FormInput>
 
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit" btn_type="default">
             Sign In
           </Button>
-          <Button type="button" btn_type="inverted" onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            btn_type={BUTTON_TYPE_CLASSES.inverted}
+            onClick={signInWithGoogle}
+          >
             Sign in with Google
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

@@ -1,8 +1,14 @@
-import "./CheckoutItem.scss";
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  Quantity,
+  Arrow,
+  BaseSpan,
+  RemoveBtn,
+} from "./CheckoutItemStyle";
+
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { ReactComponent as Increase } from "../../assets/arrow-up.svg";
-import { ReactComponent as Decrease } from "../../assets/arrow-down.svg";
 
 const CheckoutItem = ({ item }) => {
   const { name, imageUrl, price, quantity } = item;
@@ -15,21 +21,19 @@ const CheckoutItem = ({ item }) => {
   const clearItemHandler = () => clearItemFromCart(item);
 
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
+    <CheckoutItemContainer>
+      <ImageContainer>
         <img src={imageUrl} alt={name} />
-      </div>
-      <span className="name">{name}</span>
-      <div className="quantity">
-        <Decrease className="arrow" onClick={removeItemHandler} />
-        <span className="value">{quantity}</span>
-        <Increase className="arrow" onClick={addItemHandler} />
-      </div>
-      <span className="price">${price}</span>
-      <span className="remove-button" onClick={clearItemHandler}>
-        &#10005;
-      </span>
-    </div>
+      </ImageContainer>
+      <BaseSpan>{name}</BaseSpan>
+      <Quantity>
+        <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
+        <span>{quantity}</span>
+        <Arrow onClick={addItemHandler}>&#10095;</Arrow>
+      </Quantity>
+      <BaseSpan>${price}</BaseSpan>
+      <RemoveBtn onClick={clearItemHandler}>&#10005;</RemoveBtn>
+    </CheckoutItemContainer>
   );
 };
 

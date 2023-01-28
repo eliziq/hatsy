@@ -1,39 +1,41 @@
-import "./Navigation.scss";
 import { ReactComponent as HatsyLogo } from "../../assets/shop-logo.svg";
 import { useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { signOutUser } from "../../util/firebase";
 import { UserContext } from "../../contexts/UserContext";
 import { CartContext } from "../../contexts/CartContext";
-import { signOutUser } from "../../util/firebase";
 import CartIcon from "../../components/CartIcon/CartIcon";
 import CartDropdown from "../../components/CartDropdown/CartDropdown";
+
+import {
+  NavigationContainer,
+  LogoContainer,
+  TabsContainer,
+  TabLink,
+} from "./NavigationStyle.js";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
-          <HatsyLogo className="logo" />
-        </Link>
-        <div className="tabs-container">
-          <Link className="tab" to="/shop">
-            SHOP
-          </Link>
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <HatsyLogo/>
+        </LogoContainer>
+        <TabsContainer>
+          <TabLink to="/shop">SHOP</TabLink>
           {currentUser ? (
-            <span className="tab" onClick={signOutUser}>
+            <TabLink as="span" onClick={signOutUser}>
               SIGN OUT
-            </span>
+            </TabLink>
           ) : (
-            <Link className="tab" to="/sign-in">
-              SIGN IN
-            </Link>
+            <TabLink to="/sign-in">SIGN IN</TabLink>
           )}
           <CartIcon />
-        </div>
+        </TabsContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   );
