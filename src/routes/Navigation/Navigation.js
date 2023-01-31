@@ -1,9 +1,9 @@
-import { ReactComponent as HatsyLogo } from "../../assets/shop-logo.svg";
-import { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { ReactComponent as HatsyLogo } from "../../assets/shop-logo.svg";
 import { signOutUser } from "../../util/firebase";
-import { UserContext } from "../../contexts/UserContext";
-import { CartContext } from "../../contexts/CartContext";
+import { selectCurrentUser } from "../../store/user/userSelector";
+import { selectIsCartOpen } from "../../store/cart/cartSelector";
 import CartIcon from "../../components/CartIcon/CartIcon";
 import CartDropdown from "../../components/CartDropdown/CartDropdown";
 
@@ -15,13 +15,13 @@ import {
 } from "./NavigationStyle.js";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <>
       <NavigationContainer>
         <LogoContainer to="/">
-          <HatsyLogo/>
+          <HatsyLogo />
         </LogoContainer>
         <TabsContainer>
           <TabLink to="/shop">SHOP</TabLink>
