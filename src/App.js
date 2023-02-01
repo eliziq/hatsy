@@ -8,9 +8,7 @@ import {
 } from "./util/firebase";
 
 import { setCurrentUser } from "./store/user/userAction";
-import {
-  setCategories
-} from "./store/categories/categoryAction";
+import { fetchCategoriesAsync } from "./store/categories/categoryAction";
 
 import Home from "./routes/Home/Home";
 import Navigation from "./routes/Navigation/Navigation";
@@ -22,6 +20,7 @@ import "./App.scss";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(fetchCategoriesAsync());
     const unsubscribe = onAuthStateChangedListener((user) => {
       //it will be either null or a user object
       if (user) {
@@ -31,15 +30,6 @@ const App = () => {
     });
     return unsubscribe;
   }, [dispatch]);
-
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categories = await getCategoriesAndDocuments();
-      console.log(categories)
-      dispatch(setCategories(categories));
-    };
-    getCategoriesMap();
-  }, []);
 
   return (
     <Routes>
