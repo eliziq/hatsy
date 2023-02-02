@@ -1,14 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import {
-  onAuthStateChangedListener,
-  createUserDocFromAuth,
-  getCategoriesAndDocuments,
-} from "./util/firebase";
 
-import { setCurrentUser } from "./store/user/userAction";
-import { fetchCategoriesAsync } from "./store/categories/categoryAction";
+import { checkUserSession } from "./store/user/userAction";
+import { fetchCategoriesStart } from "./store/categories/categoryAction";
 
 import Home from "./routes/Home/Home";
 import Navigation from "./routes/Navigation/Navigation";
@@ -20,16 +15,9 @@ import "./App.scss";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      //it will be either null or a user object
-      if (user) {
-        createUserDocFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
-  }, [dispatch]);
+    dispatch(checkUserSession());
+    dispatch(fetchCategoriesStart());
+  }, []);
 
   return (
     <Routes>

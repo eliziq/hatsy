@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { signOutStart } from "../../store/user/userAction";
 import { ReactComponent as HatsyLogo } from "../../assets/shop-logo.svg";
-import { signOutUser } from "../../util/firebase";
 import { selectCurrentUser } from "../../store/user/userSelector";
 import { selectIsCartOpen } from "../../store/cart/cartSelector";
 import CartIcon from "../../components/CartIcon/CartIcon";
@@ -17,6 +17,10 @@ import {
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const dispatch = useDispatch();
+
+  const signOutHandler = () => dispatch(signOutStart());
+
   return (
     <>
       <NavigationContainer>
@@ -26,7 +30,7 @@ const Navigation = () => {
         <TabsContainer>
           <TabLink to="/shop">SHOP</TabLink>
           {currentUser ? (
-            <TabLink as="span" onClick={signOutUser}>
+            <TabLink as="span" onClick={signOutHandler}>
               SIGN OUT
             </TabLink>
           ) : (
