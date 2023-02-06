@@ -1,4 +1,9 @@
-import { DefaultButton, InvertedButton, SpecialButton } from "./ButtonStyled";
+import {
+  DefaultButton,
+  InvertedButton,
+  SpecialButton,
+  ButtonSpinner,
+} from "./ButtonStyled";
 
 export const BUTTON_TYPE_CLASSES = {
   default: "default",
@@ -13,9 +18,13 @@ const getButton = (btn_type = BUTTON_TYPE_CLASSES.default) =>
     [BUTTON_TYPE_CLASSES.special]: SpecialButton,
   }[btn_type]);
 
-const Button = ({ children, btn_type, ...otherProps }) => {
+const Button = ({ children, btn_type, isLoading, ...otherProps }) => {
   const CustomButton = getButton(btn_type);
-  return <CustomButton {...otherProps}>{children}</CustomButton>;
+  return (
+    <CustomButton disabled={isLoading} {...otherProps}>
+      {isLoading ? <ButtonSpinner /> : children}
+    </CustomButton>
+  );
 };
 
 export default Button;

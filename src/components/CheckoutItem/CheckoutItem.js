@@ -15,6 +15,7 @@ import {
 } from "../../store/cart/cartAction";
 import { selectCartItems } from "../../store/cart/cartSelector";
 
+
 const CheckoutItem = ({ item }) => {
   const { name, imageUrl, price, quantity } = item;
   const dispatch = useDispatch();
