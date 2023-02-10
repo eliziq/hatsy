@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import "../../common/colors.scss";
 import { SpinnerContainer } from "../Spinner/SpinnerStyle";
 
 

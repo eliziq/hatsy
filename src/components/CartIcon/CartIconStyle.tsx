@@ -14,6 +14,7 @@ export const CartIconContainer = styled.div`
 export const ShoppingIcon = styled(Icon)`
   width: 30px;
 `;
+
 export const ItemCount = styled.span`
   position: absolute;
   font-size: 10px;

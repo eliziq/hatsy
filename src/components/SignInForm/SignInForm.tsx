@@ -1,5 +1,7 @@
+import { useState, FormEvent, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { AuthErrorCodes, AuthError } from "firebase/auth";
+
 import {
   googleSignInStart,
   emailSignInStart,
@@ -28,17 +30,17 @@ const SignInForm = () => {
     dispatch(googleSignInStart());
   };
 
-  const signInWithCredentials = async (event) => {
+  const signInWithCredentials = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case "auth/wrong-password":
-          alert("Incorect password");
+      switch ((error as AuthError).code) {
+        case AuthErrorCodes.INVALID_PASSWORD:
+          alert("Incorrect password");
           break;
-        case "auth/user-not-found":
+        case AuthErrorCodes.USER_DELETED:
           alert("Seems like you are not registered yet. Wanna sign up?");
           break;
         default:
@@ -47,7 +49,7 @@ const SignInForm = () => {
     }
   };
 
-  const inputChangeHandler = (event) => {
+  const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -75,7 +77,7 @@ const SignInForm = () => {
         </FormInput>
 
         <ButtonsContainer>
-          <Button type="submit" btn_type="default">
+          <Button type="submit" btn_type={BUTTON_TYPE_CLASSES.default}>
             Sign In
           </Button>
           <Button

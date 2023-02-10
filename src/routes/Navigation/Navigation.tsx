@@ -12,7 +12,7 @@ import {
   LogoContainer,
   TabsContainer,
   TabLink,
-} from "./NavigationStyle.js";
+} from "./NavigationStyle";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
