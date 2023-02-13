@@ -1,11 +1,17 @@
+import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   DirectoryItemContainer,
   BackgroundImage,
   CategoryBodyContainer,
 } from "./DirectoryItemStyle";
-import { useNavigate } from "react-router-dom";
+import { CategoryDesc } from "../../store/categories/categoryTypes";
 
-const DirectoryItem = ({ category }) => {
+type DirectoryItemProps = {
+  category: CategoryDesc;
+};
+
+const DirectoryItem: FC<DirectoryItemProps> = ({ category }) => {
   const navigate = useNavigate();
   const goToCategoryHandler = () => {
     navigate(`shop/${category.title.toLowerCase()}`);
