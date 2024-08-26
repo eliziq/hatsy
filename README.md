@@ -1,4 +1,4 @@
-You can check this app on [Netlify](https://hatsy-store.netlify.app)!
+You can check this app on [Netlify](https://hatsy-store.netlify.app/shop)!
 
 # Getting Started with Create React App
 
