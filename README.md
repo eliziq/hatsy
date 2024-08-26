@@ -1,3 +1,5 @@
+You can check this app on [Netlify](https://hatsy-store.netlify.app)!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
